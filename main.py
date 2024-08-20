@@ -33,14 +33,18 @@ while palpite != numero:
         
         # Pergunta para o usuário se ele quer jogar de novo
         dnv = str(input("Quer jogar de novo? (S/N)\n> ")).upper()
+        while dnv not in 'SN': # Certifica-se de que o usuário escreveu S ou N
+            system('cls')
+            print("Opção inválida, tente novamente")
+            dnv = str(input("Quer jogar de novo? (S/N)\n> ")).upper()
         if dnv == 'S': # Se sim, dá reset em tudo e escolhe outro número de 1-10
             numero = random.randint(1, 10)
             palpite = 0
             tentativas = 0
             system('cls')
-        else:
+        else: # Se não, o programa encerra
             break
-        
+
     # Dá dicas para o usuário caso o palpite dele esteja errado
     elif palpite < numero:
         print("Um pouco mais...")
