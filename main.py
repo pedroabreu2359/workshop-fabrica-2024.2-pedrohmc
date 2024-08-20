@@ -44,7 +44,6 @@ while palpite != numero:
             system('cls')
         else: # Se não, o programa encerra
             break
-
     # Dá dicas para o usuário caso o palpite dele esteja errado
     elif palpite < numero:
         print("Um pouco mais...")
