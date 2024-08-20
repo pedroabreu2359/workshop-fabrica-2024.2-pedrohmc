@@ -24,7 +24,12 @@ while palpite != numero:
     palpite = int(input("Seu palpite (1-10): ")) # Pede um palpite pro usuário
     system('cls')
 
-    if palpite == numero: # Verifica se o palpite do usuário está correto
+    # Dá dicas para o usuário caso o palpite dele esteja errado
+    if palpite < numero:
+        print("Um pouco mais...")
+    elif palpite > numero:
+        print("Um pouco menos...")
+    else: # Verifica se o palpite do usuário está correto
         # Verifica se o usuário acertou de primeira
         if tentativas == 1:
             print("Na mosca! Acertou de primeira!")
@@ -44,8 +49,3 @@ while palpite != numero:
             system('cls')
         else: # Se não, o programa encerra
             break
-    # Dá dicas para o usuário caso o palpite dele esteja errado
-    elif palpite < numero:
-        print("Um pouco mais...")
-    else:
-        print("Um pouco menos...")
