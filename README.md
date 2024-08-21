@@ -1,3 +1,3 @@
-## Jogo de Adivinhação em Python
+## Fábrica de Software 2024.2
 
-O programa escolhe um número aleatório de 1 a 10 para o usuário adivinhar
+Conjunto de programas feitos durante o Workshop da Fábrica de Software 2024.2
