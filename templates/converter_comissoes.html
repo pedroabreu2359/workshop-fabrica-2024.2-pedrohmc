@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Conversor de Comissões</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversor de Comissões</h1>
+
+        <form method="GET" class="conversao-form">
+            <div class="input-group">
+                <label for="moeda_origem">Moeda de Origem:</label>
+                <select name="moeda_origem" id="moeda_origem" class="select-moeda">
+                    {% for codigo, nome in moedas %}
+                        <option value="{{ codigo }}" {% if codigo == moeda_origem %}selected{% endif %}>
+                            {{ nome }} ({{ codigo }})
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn-converter">Converter Comissões</button>
+        </form>
+
+        {% if comissoes_convertidas %}
+            <h2>Comissões Convertidas para Real</h2>
+            <ul>
+                {% for comissao in comissoes_convertidas %}
+                    <li>
+                        Vendedor: {{ comissao.vendedor }}<br>
+                        Valor Original: {{ comissao.valor_original|floatformat:2 }} {{ comissao.moeda_origem }}<br>
+                        Valor Convertido: {{ comissao.valor_convertido|floatformat:2 }} BRL<br>
+                        Taxa de Câmbio: 1 {{ comissao.moeda_origem }} = {{ comissao.taxa_cambio|floatformat:2 }} BRL
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhuma comissão encontrada ou taxa de câmbio não disponível.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

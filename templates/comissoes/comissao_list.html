@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Lista de Comissões</title>
+</head>
+<body>
+    <h1>Comissões</h1>
+    <a href="{% url 'comissao-create' %}">Nova Comissão</a>
+    <ul>
+        {% for comissao in comissoes %}
+            <li>
+                Vendedor: {{ comissao.vendedor.nome }} - Valor: {{ comissao.valor }} - Data: {{ comissao.data_comissao }}
+                <a href="{% url 'comissao-update' comissao.id %}">Editar</a>
+                <a href="{% url 'comissao-delete' comissao.id %}">Deletar</a>
+            </li>
+        {% empty %}
+            <li>Nenhuma comissão cadastrada.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

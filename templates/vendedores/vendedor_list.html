@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Lista de Vendedores</title>
+</head>
+<body>
+    <h1>Vendedores</h1>
+    <a href="{% url 'vendedor-create' %}">Novo Vendedor</a>
+    <ul>
+        {% for vendedor in vendedores %}
+            <li>
+                {{ vendedor.nome }} - CPF: {{ vendedor.cpf }}
+                <a href="{% url 'vendedor-update' vendedor.id %}">Editar</a>
+                <a href="{% url 'vendedor-delete' vendedor.id %}">Deletar</a>
+            </li>
+        {% empty %}
+            <li>Nenhum vendedor cadastrado.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

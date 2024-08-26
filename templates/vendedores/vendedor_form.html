@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>{% if object %}Editar{% else %}Novo{% endif %} Vendedor</title>
+</head>
+<body>
+    <h1>{% if object %}Editar{% else %}Novo{% endif %} Vendedor</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{% url 'vendedor-list' %}">Voltar para a lista</a>
+</body>
+</html>
