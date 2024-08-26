@@ -1,39 +1,125 @@
-/* static/styles.css */
+/* Estilo global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
     padding: 20px;
 }
 
-h1 {
-    color: #333;
+/* Container principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Cabeçalhos */
+h1, h2, h3 {
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+/* Links */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Formulários */
 form {
     margin-bottom: 20px;
 }
 
-label {
-    display: block;
-    margin: 5px 0;
-}
-
-input {
-    padding: 5px;
-    margin-bottom: 10px;
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
     width: 100%;
-    max-width: 300px;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
+button, input[type="submit"] {
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
+    background-color: #007bff;
+    color: white;
     cursor: pointer;
+    font-size: 16px;
 }
 
-button:hover {
+button:hover, input[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    select,
+    textarea {
+        font-size: 14px;
+    }
+
+    button, input[type="submit"] {
+        font-size: 14px;
+    }
+
+    th, td {
+        font-size: 14px;
+        padding: 8px;
+    }
 }

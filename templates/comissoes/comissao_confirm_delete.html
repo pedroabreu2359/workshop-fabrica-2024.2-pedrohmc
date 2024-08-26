@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Deletar Comissão</title>
+</head>
+<body>
+    <h1>Tem certeza que deseja deletar a comissão de {{ object.vendedor.nome }} no valor de {{ object.valor }}?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sim, deletar</button>
+    </form>
+    <a href="{% url 'comissao-list' %}">Cancelar</a>
+</body>
+</html>
